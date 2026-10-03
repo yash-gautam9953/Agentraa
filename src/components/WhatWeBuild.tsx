@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { LayoutTemplate, MessageCircle, ArrowRight, CheckCircle2 } from "lucide-react";
+import { LayoutTemplate, MessageCircle, ArrowRight, CheckCircle2, Smartphone } from "lucide-react";
 import Link from "next/link";
 
 export default function WhatWeBuild() {
@@ -14,11 +14,11 @@ export default function WhatWeBuild() {
             Our Core Expertise
           </h2>
           <p className="text-lg text-slate-400">
-            We don't do everything. We specialize exclusively in two areas to deliver unparalleled quality.
+            We don't do everything. We specialize exclusively in three areas to deliver unparalleled quality.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           
           {/* Feature 1: Websites */}
           <motion.div 
@@ -55,12 +55,48 @@ export default function WhatWeBuild() {
             </div>
           </motion.div>
 
-          {/* Feature 2: WhatsApp Autobots */}
+          {/* Feature 2: Mobile Apps */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
+            className="glass-card p-8 md:p-12 rounded-[2rem] border border-white/5 hover:border-white/10 transition-colors group relative overflow-hidden flex flex-col"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl opacity-20 bg-indigo-500 transition-opacity group-hover:opacity-30" />
+            
+            <div className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 bg-indigo-500/10 border border-indigo-500/20 group-hover:scale-110 transition-transform duration-300">
+              <Smartphone className="w-8 h-8 text-indigo-400" />
+            </div>
+            
+            <h3 className="text-3xl font-bold text-white mb-4">Custom Mobile<br/>Applications</h3>
+            <p className="text-slate-400 mb-8 leading-relaxed text-lg">
+              Put your business in your customers' pockets. We design and engineer premium native applications for both iOS and Android platforms.
+            </p>
+            
+            <ul className="space-y-3 mb-10 mt-auto">
+              {["Native iOS & Android", "Sleek User Interfaces", "Seamless API Integrations", "App Store Deployment"].map((feature, idx) => (
+                <li key={idx} className="flex items-center gap-3 text-slate-300">
+                  <CheckCircle2 className="w-5 h-5 text-indigo-500/50 shrink-0" />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            
+            <div>
+              <Link href="#contact" className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 text-white font-semibold rounded-full hover:bg-white/10 transition-colors">
+                Start App Project
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Feature 3: WhatsApp Autobots */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
             className="glass-card p-8 md:p-12 rounded-[2rem] border border-white/5 hover:border-white/10 transition-colors group relative overflow-hidden flex flex-col bg-[#050505]/50"
           >
             <div className="absolute top-0 right-0 w-64 h-64 rounded-full blur-3xl opacity-10 bg-green-500 transition-opacity group-hover:opacity-20" />

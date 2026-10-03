@@ -10,6 +10,7 @@ export default function Showcase() {
 
   const tabs = [
     { id: "website", label: "Website Development", icon: LayoutTemplate },
+    { id: "app", label: "Mobile Apps", icon: Smartphone },
     { id: "whatsapp", label: "WhatsApp Autobots", icon: MessageCircle },
   ];
 
@@ -137,6 +138,50 @@ export default function Showcase() {
                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-64 bg-[#0a0a0a] border border-white/20 rounded-2xl shadow-2xl"></div>
                       </div>
                     </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {activeTab === "app" && (
+              <motion.div
+                key="app-demo"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="flex items-center justify-center py-10"
+              >
+                {/* Mobile Phone Mockup */}
+                <div className="relative w-[300px] h-[600px] bg-[#050505] rounded-[3rem] border-8 border-white/10 shadow-2xl overflow-hidden flex flex-col p-4">
+                  {/* Notch */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-white/10 rounded-b-3xl"></div>
+                  
+                  {/* App Content */}
+                  <div className="pt-10 flex-1 flex flex-col gap-6">
+                    <div className="flex items-center justify-between">
+                      <div className="w-12 h-12 bg-white/20 rounded-full"></div>
+                      <div className="w-8 h-8 bg-white/10 rounded-xl"></div>
+                    </div>
+                    
+                    <div>
+                      <div className="w-3/4 h-8 bg-white/20 rounded-lg mb-2"></div>
+                      <div className="w-1/2 h-4 bg-white/10 rounded-md"></div>
+                    </div>
+                    
+                    <div className="w-full h-40 bg-white/10 rounded-3xl mt-4"></div>
+                    
+                    <div className="flex gap-4 overflow-x-hidden">
+                      <div className="w-32 h-32 bg-white/10 rounded-2xl shrink-0"></div>
+                      <div className="w-32 h-32 bg-white/10 rounded-2xl shrink-0"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Bottom Navigation */}
+                  <div className="h-16 bg-white/5 rounded-3xl border border-white/10 flex items-center justify-around px-4">
+                    <div className="w-6 h-6 bg-white/20 rounded-full"></div>
+                    <div className="w-6 h-6 bg-white/10 rounded-full"></div>
+                    <div className="w-6 h-6 bg-white/10 rounded-full"></div>
+                    <div className="w-6 h-6 bg-white/10 rounded-full"></div>
                   </div>
                 </div>
               </motion.div>

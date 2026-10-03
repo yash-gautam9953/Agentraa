@@ -14,7 +14,7 @@ export default function Contact() {
     businessType: "",
     teamSize: "",
     challenge: "",
-    automation: "",
+    automation: [] as string[],
     budget: "",
     name: "",
     email: "",
@@ -33,14 +33,31 @@ export default function Contact() {
     if (step > 1) setStep(prev => prev - 1);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...formData, automation: formData.automation.length > 0 ? formData.automation.join(" + ") : "Not Specified" }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Failed to submit");
+      }
+
       setIsSubmitted(true);
-    }, 1500);
+    } catch (error: any) {
+      console.error("Error submitting form:", error);
+      alert(error.message || "Failed to submit form. Please check if Notion API is configured.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const renderStepContent = () => {
@@ -117,23 +134,36 @@ export default function Contact() {
             </div>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-2">What do you want us to build? *</label>
-                <select required name="automation" value={formData.automation} onChange={handleChange} className="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-4 text-slate-300 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all">
-                  <option value="">Select an option</option>
-                  <option value="Website">Business Website</option>
-                  <option value="WhatsApp Bot">WhatsApp Autobot</option>
-                  <option value="Both">Both (Complete Setup)</option>
-                </select>
+                <label className="block text-sm font-medium text-slate-300 mb-3">What do you want us to build? (Select multiple) *</label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {["Business Website", "Mobile App", "WhatsApp Autobot", "Custom AI Agent"].map((option) => (
+                    <label key={option} className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all ${formData.automation.includes(option) ? 'bg-cyan-500/10 border-cyan-500' : 'bg-slate-900 border-white/10 hover:border-white/20'}`}>
+                      <input 
+                        type="checkbox" 
+                        className="w-5 h-5 rounded border-white/20 text-cyan-500 focus:ring-cyan-500 bg-slate-800"
+                        checked={formData.automation.includes(option)}
+                        onChange={(e) => {
+                          const newSelections = e.target.checked 
+                            ? [...formData.automation, option]
+                            : formData.automation.filter(item => item !== option);
+                          setFormData(prev => ({ ...prev, automation: newSelections }));
+                        }}
+                      />
+                      <span className="text-slate-200">{option}</span>
+                    </label>
+                  ))}
+                </div>
+                <input type="text" className="opacity-0 absolute w-0 h-0" required value={formData.automation.length > 0 ? "valid" : ""} onChange={() => {}} />
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-300 mb-2">Budget Range (Optional)</label>
                 <select name="budget" value={formData.budget} onChange={handleChange} className="w-full bg-slate-900 border border-white/10 rounded-xl px-4 py-4 text-slate-300 focus:outline-none focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 transition-all">
                   <option value="">Select a range</option>
                   <option value="Just exploring">Just exploring</option>
-                  <option value="Under ₹25,000">Under ₹25,000</option>
-                  <option value="₹25,000 - ₹50,000">₹25,000 – ₹50,000</option>
-                  <option value="₹50,000 - ₹1,00,000">₹50,000 – ₹1,00,000</option>
-                  <option value="₹1,00,000+">₹1,00,000+</option>
+                  <option value="Under ₹25000">Under ₹25,000</option>
+                  <option value="₹25000 - ₹50000">₹25,000 – ₹50,000</option>
+                  <option value="₹50000 - ₹100000">₹50,000 – ₹1,00,000</option>
+                  <option value="₹100000+">₹1,00,000+</option>
                   <option value="Not sure">Not sure</option>
                 </select>
               </div>

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, LayoutTemplate, MessageCircle, Layers, Target, Users, Zap, ShieldCheck, CheckCircle2 } from "lucide-react";
+import { ArrowRight, LayoutTemplate, MessageCircle, Layers, Target, Users, Zap, ShieldCheck, CheckCircle2, Smartphone } from "lucide-react";
 import Link from "next/link";
 
 export default function AutomationFinder() {
@@ -14,8 +14,9 @@ export default function AutomationFinder() {
 
   const projectTypes = [
     { id: "website", label: "Business Website", desc: "A high-converting online presence", icon: LayoutTemplate },
+    { id: "app", label: "Mobile App", desc: "Native iOS & Android app", icon: Smartphone },
     { id: "whatsapp", label: "WhatsApp Autobot", desc: "Automate support & bookings", icon: MessageCircle },
-    { id: "both", label: "Complete Digital Setup", desc: "Website + WhatsApp Automation", icon: Layers },
+    { id: "both", label: "Complete Digital Setup", desc: "Web, App & WhatsApp Setup", icon: Layers },
   ];
 
   const primaryGoals = [
@@ -40,7 +41,10 @@ export default function AutomationFinder() {
 
     if (projectType === "both") {
       title = "The Complete Growth Engine";
-      description = "A premium business website to build trust and capture leads, paired with a WhatsApp Autobot to instantly engage and convert them 24/7.";
+      description = "A premium business website and mobile app to build trust, paired with a WhatsApp Autobot to instantly engage and convert leads 24/7.";
+    } else if (projectType === "app") {
+      title = "Premium Mobile Application";
+      description = "A stunning, highly functional native mobile app that puts your business directly in your customers' pockets.";
     } else if (projectType === "website") {
       title = "High-Performance Business Website";
       description = primaryGoal === "leads" 
@@ -94,7 +98,7 @@ export default function AutomationFinder() {
                 className="w-full"
               >
                 <h3 className="text-2xl font-bold text-white mb-8 text-center">1. What do you need to build?</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {projectTypes.map((item) => (
                     <button
                       key={item.id}

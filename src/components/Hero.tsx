@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Layout, MessageCircle, Zap, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Layout, MessageCircle, Smartphone, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 
 export default function Hero() {
@@ -47,7 +47,7 @@ export default function Hero() {
             </motion.h1>
             
             <motion.p variants={itemVariants} className="text-lg lg:text-xl text-slate-400 mb-10 leading-relaxed max-w-xl">
-              We build high-performance websites and intelligent WhatsApp autobots to help your business capture leads and automate support effortlessly.
+              We build high-performance websites, custom mobile apps, and intelligent WhatsApp autobots to help your business capture leads and scale effortlessly.
             </motion.p>
             
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mb-12">
@@ -84,10 +84,10 @@ export default function Hero() {
               </div>
               <div>
                 <div className="flex items-center gap-2 text-white mb-2">
-                  <Zap className="w-5 h-5 text-slate-400" />
-                  <h3 className="font-semibold text-slate-200">Fast Delivery</h3>
+                  <Smartphone className="w-5 h-5 text-slate-400" />
+                  <h3 className="font-semibold text-slate-200">Mobile Apps</h3>
                 </div>
-                <p className="text-sm text-slate-500">Engineered for speed.</p>
+                <p className="text-sm text-slate-500">Native iOS & Android.</p>
               </div>
             </motion.div>
           </motion.div>
