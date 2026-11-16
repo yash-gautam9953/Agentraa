@@ -17,12 +17,12 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Agentraa | AI Agents for Small Business in India & Beyond",
-  description: "Agentraa is a premium AI automation agency building custom AI agents and business automation systems to help small businesses save time, capture leads, and scale.",
-  keywords: ["AI agents for small business", "AI automation", "business automation", "AI automation agency", "AI agents India", "small business automation"],
+  title: "Agentraa | Digital Solutions for Growing Businesses",
+  description: "Agentraa helps businesses grow with high-performing websites, mobile apps, and practical AI-powered automation built around the way they work.",
+  keywords: ["digital solutions for business", "business websites", "mobile app development", "AI automation", "business automation", "digital agency India"],
   openGraph: {
-    title: "Agentraa | Custom AI Agents & Business Automation",
-    description: "Agentraa builds custom AI agents that handle repetitive work, respond to customers, and qualify leads, helping small businesses scale efficiently.",
+    title: "Agentraa | Digital Solutions for Growing Businesses",
+    description: "Websites, mobile apps, and AI-powered automation to help businesses operate better and grow.",
     url: "https://agentraa.com",
     siteName: "Agentraa",
     locale: "en_IN",
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agentraa | AI Agents & Automation for Small Businesses",
-    description: "Agentraa builds custom AI agents and automation systems that help small businesses save time, capture leads, and scale.",
+    title: "Agentraa | Digital Solutions for Growing Businesses",
+    description: "Websites, mobile apps, and AI-powered automation to help businesses operate better and grow.",
   },
   alternates: {
     canonical: "https://agentraa.com",

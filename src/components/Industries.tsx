@@ -71,11 +71,11 @@ export default function Industries() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight font-heading">
-            AI automation for the way <br/>
+            Digital solutions for the way <br/>
             <span className="text-indigo-400">your business works.</span>
           </h2>
           <p className="text-lg text-slate-400">
-            Select your industry to see how an AI agent handles your specific workflows.
+            Choose your industry to explore practical ways technology can simplify everyday work.
           </p>
         </div>
 
@@ -180,9 +180,9 @@ export default function Industries() {
           
           <div className="glass-card p-8 rounded-3xl border border-indigo-500/20 bg-indigo-500/5 max-w-2xl mx-auto">
             <h4 className="text-lg font-bold text-white mb-2">Not sure if your business is a fit?</h4>
-            <p className="text-slate-400 mb-6 text-sm">We've built custom automation for dozens of niche industries.</p>
+            <p className="text-slate-400 mb-6 text-sm">Tell us about your business and we’ll help shape a solution around your needs.</p>
             <Link
-              href="#automation-finder"
+              href="#contact"
               className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full font-medium transition-all hover:glow-effect active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
             >
               Find My Automation Opportunity

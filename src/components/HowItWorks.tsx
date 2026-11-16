@@ -10,8 +10,8 @@ export default function HowItWorks() {
   const steps = [
     {
       number: "01",
-      title: "Discovery & Analysis",
-      description: "We dive deep into your business operations to identify bottlenecks, repetitive tasks, and areas where AI can drive the most impact. We don't just look for tasks to automate; we look for processes to transform.",
+      title: "Understand Your Business",
+      description: "We learn how your business works, where customers need help, and what is slowing your team down.",
       icon: Search,
       color: "text-indigo-400",
       bg: "bg-indigo-500/10",
@@ -19,8 +19,8 @@ export default function HowItWorks() {
     },
     {
       number: "02",
-      title: "Custom AI Design",
-      description: "Our engineers design a tailored AI architecture. Whether it's a customer support agent, a lead qualification bot, or an internal data analyst, the system is designed to match your brand's voice and specific logic.",
+      title: "Plan the Right Solution",
+      description: "Together, we choose the right approach: a stronger website, a mobile app, or a connected workflow.",
       icon: PenTool,
       color: "text-fuchsia-400",
       bg: "bg-fuchsia-500/10",
@@ -28,8 +28,8 @@ export default function HowItWorks() {
     },
     {
       number: "03",
-      title: "Seamless Integration",
-      description: "We integrate the AI agents into your existing tech stack. From CRMs like Salesforce and HubSpot to communication channels like Slack and WhatsApp, the deployment is smooth and non-disruptive.",
+      title: "Design & Build",
+      description: "Our team creates a polished, reliable solution that fits your brand and works with the tools your business already uses.",
       icon: Link2,
       color: "text-cyan-400",
       bg: "bg-cyan-500/10",
@@ -37,8 +37,8 @@ export default function HowItWorks() {
     },
     {
       number: "04",
-      title: "Optimization & Scale",
-      description: "Once live, we monitor the AI's performance, refine its responses, and scale its capabilities. As your business grows, your AI workforce scales instantly to meet demand without adding overhead.",
+      title: "Launch & Improve",
+      description: "We help you launch, gather feedback, and make thoughtful improvements as your business and customer needs evolve.",
       icon: TrendingUp,
       color: "text-amber-400",
       bg: "bg-amber-500/10",
@@ -75,8 +75,8 @@ export default function HowItWorks() {
                 transition={{ delay: 0.1 }}
                 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight"
               >
-                From an outdated setup to <br/>
-                <span className="text-gradient">digital excellence.</span>
+                From business challenge to <br/>
+                <span className="text-gradient">digital solution.</span>
               </motion.h2>
 
               <motion.p 
@@ -86,7 +86,7 @@ export default function HowItWorks() {
                 transition={{ delay: 0.2 }}
                 className="text-lg text-slate-400 mb-8 max-w-md"
               >
-                We handle the design and engineering complexity so you can focus on what you do best: running and growing your business.
+                We take care of the design and engineering, so you can stay focused on running and growing your business.
               </motion.p>
             </div>
           </div>

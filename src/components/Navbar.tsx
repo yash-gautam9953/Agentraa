@@ -17,6 +17,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMobileMenuOpen(false);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isMobileMenuOpen]);
+
   const navLinks = [
     { name: "Solutions", href: "#solutions" },
     { name: "How It Works", href: "#how-it-works" },
@@ -71,11 +82,13 @@ export default function Navbar() {
 
             {/* Mobile Menu Toggle */}
             <button
-              onClick={() => setIsMobileMenuOpen(true)}
-              className="md:hidden p-2 text-slate-300 hover:text-white outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-md"
-              aria-label="Open mobile menu"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden min-h-11 min-w-11 p-2 text-slate-300 hover:text-white outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-xl bg-white/5 border border-white/10"
+              aria-label={isMobileMenuOpen ? "Close mobile menu" : "Open mobile menu"}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-navigation"
             >
-              <Menu className="w-6 h-6" />
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -88,6 +101,7 @@ export default function Navbar() {
             initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
             animate={{ opacity: 1, backdropFilter: "blur(16px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
+            onClick={() => setIsMobileMenuOpen(false)}
             className="fixed inset-0 z-[60] bg-[#050505]/80 md:hidden"
           >
             <motion.div
@@ -95,7 +109,12 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="absolute top-0 right-0 bottom-0 w-3/4 max-w-sm bg-[#0a0a0a] border-l border-white/10 p-6 flex flex-col shadow-2xl"
+              id="mobile-navigation"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Mobile navigation"
+              onClick={(event) => event.stopPropagation()}
+              className="absolute top-0 right-0 bottom-0 w-[min(86vw,24rem)] bg-[#0a0a0a] border-l border-white/10 p-5 sm:p-6 flex flex-col shadow-2xl"
             >
               <div className="flex items-center justify-between mb-12">
                 <div className="flex items-center gap-2">
@@ -113,13 +132,13 @@ export default function Navbar() {
                 </button>
               </div>
 
-              <nav className="flex flex-col gap-6 mb-auto">
+              <nav className="flex flex-col gap-2 mb-auto">
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
                     href={link.href}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="text-lg font-medium text-slate-300 hover:text-white transition-colors"
+                    className="flex min-h-12 items-center rounded-xl px-4 text-base font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
                   >
                     {link.name}
                   </Link>

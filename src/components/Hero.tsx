@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, Layout, MessageCircle, Smartphone, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Layout, MessageCircle, Smartphone } from "lucide-react";
 import Link from "next/link";
 
 export default function Hero() {
@@ -22,7 +22,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative pt-32 pb-20 flex items-center overflow-hidden bg-[#050505]">
+    <section className="relative pt-28 pb-14 sm:pt-32 sm:pb-20 flex items-center overflow-hidden bg-[#050505]">
       {/* Subtle Premium Background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-slate-800/20 rounded-full blur-[120px] mix-blend-screen" />
@@ -30,44 +30,44 @@ export default function Hero() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-8 items-center">
           
           {/* Left: Copy */}
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="max-w-2xl"
+            className="max-w-2xl mx-auto lg:mx-0 text-center lg:text-left"
           >
-            <motion.h1 variants={itemVariants} className="text-5xl lg:text-7xl font-bold tracking-tight text-white mb-6 font-heading leading-[1.1]">
-              Digital Excellence for <br />
+            <motion.h1 variants={itemVariants} className="text-[clamp(2.4rem,8vw,3.25rem)] lg:text-7xl font-bold tracking-tight text-white mb-5 sm:mb-6 font-heading leading-[1.08]">
+              Digital Solutions for <br className="hidden sm:block" />
               <span className="text-gradient">
                 Modern Businesses.
               </span>
             </motion.h1>
             
-            <motion.p variants={itemVariants} className="text-lg lg:text-xl text-slate-400 mb-10 leading-relaxed max-w-xl">
-              We build high-performance websites, custom mobile apps, and intelligent WhatsApp autobots to help your business capture leads and scale effortlessly.
+            <motion.p variants={itemVariants} className="text-base sm:text-lg lg:text-xl text-slate-400 mb-7 sm:mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
+              We design and build the digital tools businesses need to grow—from high-performing websites and mobile apps to connected, AI-powered workflows.
             </motion.p>
             
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 mb-12">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-12 max-w-md sm:max-w-none mx-auto lg:mx-0">
               <Link 
-                href="#automation-finder" 
-                className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-black transition-all duration-300 bg-white border border-transparent rounded-full hover:bg-slate-200 hover:scale-105 active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] focus-visible:ring-white"
+                href="#solutions"
+                className="group relative inline-flex min-h-12 items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-black transition-all duration-300 bg-white border border-transparent rounded-full hover:bg-slate-200 hover:scale-105 active:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] focus-visible:ring-white"
               >
-                <span>Start Your Project</span>
+                <span>Explore Solutions</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link 
                 href="#contact" 
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold text-slate-300 transition-all duration-300 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:text-white outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] focus-visible:ring-white"
+                className="inline-flex min-h-12 items-center justify-center gap-2 px-6 sm:px-8 py-3.5 sm:py-4 text-sm sm:text-base font-semibold text-slate-300 transition-all duration-300 bg-white/5 border border-white/10 rounded-full hover:bg-white/10 hover:text-white outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] focus-visible:ring-white"
               >
                 Talk to Agentraa
               </Link>
             </motion.div>
 
             {/* Value Pillars */}
-            <motion.div variants={itemVariants} className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-white/10">
+            <motion.div variants={itemVariants} className="grid grid-cols-1 min-[420px]:grid-cols-3 gap-4 sm:gap-6 pt-6 sm:pt-8 border-t border-white/10 text-left">
               <div>
                 <div className="flex items-center gap-2 text-white mb-2">
                   <Layout className="w-5 h-5 text-slate-400" />
@@ -97,7 +97,7 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.5, type: "spring", stiffness: 40 }}
-            className="relative lg:h-[600px] flex items-center justify-center mt-12 lg:mt-0"
+            className="relative h-[300px] min-[420px]:h-[340px] sm:h-[390px] lg:h-[600px] flex items-center justify-center mt-2 lg:mt-0"
           >
             <div className="relative w-full max-w-lg mx-auto">
               
@@ -105,7 +105,7 @@ export default function Hero() {
               <motion.div 
                 animate={{ y: [0, -10, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-0 right-10 left-10 h-64 bg-[#0a0a0a] border border-white/10 rounded-t-2xl shadow-2xl overflow-hidden z-10 flex flex-col"
+                className="absolute top-0 right-4 left-4 min-[420px]:right-8 min-[420px]:left-8 sm:right-10 sm:left-10 h-48 sm:h-64 bg-[#0a0a0a] border border-white/10 rounded-t-2xl shadow-2xl overflow-hidden z-10 flex flex-col"
               >
                 {/* Browser Header */}
                 <div className="h-8 border-b border-white/10 bg-white/5 flex items-center px-4 gap-2">
@@ -129,7 +129,7 @@ export default function Hero() {
               <motion.div 
                 animate={{ y: [0, 15, 0] }}
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute -bottom-10 -right-4 w-64 glass-card bg-[#050505]/90 border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-20"
+                className="absolute bottom-0 right-0 min-[420px]:right-2 sm:-bottom-10 sm:-right-4 w-56 min-[420px]:w-60 sm:w-64 glass-card bg-[#050505]/95 border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-20"
               >
                 <div className="h-12 bg-green-600/20 border-b border-green-500/20 flex items-center px-4 gap-3">
                   <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">

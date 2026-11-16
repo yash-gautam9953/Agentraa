@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function FloatingCTA() {
@@ -39,14 +39,25 @@ export default function FloatingCTA() {
           initial={{ opacity: 0, y: 50, scale: 0.9 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 50, scale: 0.9 }}
-          className="fixed bottom-6 right-6 z-40 hidden md:block" // Hidden on small screens to avoid blocking content
+          className="mobile-floating-cta fixed z-40"
         >
           <Link
             href="#contact"
-            className="group flex items-center gap-3 px-6 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full shadow-2xl hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] focus-visible:ring-indigo-500"
+            onClick={(event) => {
+              const contactSection = document.getElementById("contact");
+              if (!contactSection) return;
+
+              event.preventDefault();
+              window.history.replaceState(null, "", "#contact");
+              contactSection.scrollIntoView({
+                behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+                block: "start",
+              });
+            }}
+            className="mobile-floating-cta__link group inline-flex min-h-11 w-auto items-center justify-center gap-2 px-4 py-2.5 md:min-h-12 md:gap-3 md:px-6 md:py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-full shadow-2xl hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] focus-visible:ring-indigo-500"
           >
-            <MessageCircle className="w-5 h-5" />
-            <span className="font-semibold text-sm tracking-wide">Talk to Agentraa →</span>
+            <MessageCircle className="w-4 h-4 md:w-5 md:h-5" />
+            <span className="whitespace-nowrap font-semibold text-xs md:text-sm tracking-wide">Talk to Agentraa <span aria-hidden="true">→</span></span>
           </Link>
         </motion.div>
       )}

@@ -52,9 +52,9 @@ export default function Contact() {
       }
 
       setIsSubmitted(true);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Error submitting form:", error);
-      alert(error.message || "Failed to submit form. Please check if Notion API is configured.");
+      alert(error instanceof Error ? error.message : "Failed to submit form. Please check if Notion API is configured.");
     } finally {
       setIsSubmitting(false);
     }
@@ -134,9 +134,9 @@ export default function Contact() {
             </div>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-slate-300 mb-3">What do you want us to build? (Select multiple) *</label>
+                <label className="block text-sm font-medium text-slate-300 mb-3">What would you like help with? Select all that apply. *</label>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {["Business Website", "Mobile App", "WhatsApp Autobot", "Custom AI Agent"].map((option) => (
+                  {["Business Website", "Mobile App", "WhatsApp Automation", "Business Workflow Automation"].map((option) => (
                     <label key={option} className={`flex items-center gap-3 p-4 rounded-xl border cursor-pointer transition-all ${formData.automation.includes(option) ? 'bg-cyan-500/10 border-cyan-500' : 'bg-slate-900 border-white/10 hover:border-white/20'}`}>
                       <input 
                         type="checkbox" 
@@ -197,7 +197,7 @@ export default function Contact() {
                 <input required type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-4 text-white placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all" placeholder="+91 90000 00000" />
                 <p className="text-xs text-slate-500 mt-2 flex items-start gap-1">
                   <Info className="w-3.5 h-3.5 shrink-0" />
-                  We may use WhatsApp to follow up about your enquiry.
+                  We may use WhatsApp to follow up about your inquiry.
                 </p>
               </div>
             </div>
@@ -227,7 +227,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 relative bg-[#050505]">
+    <section id="contact" className="scroll-mt-20 py-24 relative bg-[#050505]">
       {/* Background glow */}
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-indigo-900/10 rounded-full blur-[120px] pointer-events-none" />
 
@@ -237,8 +237,8 @@ export default function Contact() {
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 tracking-tight font-heading">
             Tell Us About Your Business
           </h2>
-          <p className="text-lg text-slate-400">
-            We'll identify where AI automation could create the biggest opportunity.
+          <p className="text-base sm:text-lg text-slate-400">
+            Tell us what you’re working on. We’ll help you find the right digital solution.
           </p>
         </div>
 
@@ -255,7 +255,7 @@ export default function Contact() {
               </div>
               <h3 className="text-3xl font-bold text-white mb-4">Request Received</h3>
               <p className="text-slate-400 max-w-md mx-auto text-lg mb-8">
-                Thank you for reaching out! Our automation experts are reviewing your business details and will contact you within 24 hours.
+                Thank you for reaching out! Our team is reviewing your details and will be in touch soon.
               </p>
               <div className="inline-flex items-center gap-2 text-sm text-slate-500 bg-white/5 px-4 py-2 rounded-full border border-white/5">
                 <ShieldCheck className="w-4 h-4 text-green-400" />
@@ -265,13 +265,13 @@ export default function Contact() {
           ) : (
             <>
               {/* Progress Indicator */}
-              <div className="mb-12">
+              <div className="mb-8 sm:mb-12">
                 <div className="flex justify-between mb-2">
                   <div className="text-xs font-medium text-slate-500 uppercase tracking-wider">Step {step} of 4</div>
                   <div className="text-xs font-medium text-indigo-400 uppercase tracking-wider">
                     {step === 1 && "Business"}
                     {step === 2 && "Challenge"}
-                    {step === 3 && "Automation"}
+                    {step === 3 && "Project"}
                     {step === 4 && "Contact"}
                   </div>
                 </div>
