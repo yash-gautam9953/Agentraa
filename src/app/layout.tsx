@@ -3,10 +3,8 @@ import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import FloatingCTA from "@/components/FloatingCTA";
-import BookCallModal from "@/components/BookCallModal";
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
 });
@@ -17,12 +15,25 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Agentraa | Digital Solutions for Growing Businesses",
-  description: "Agentraa helps businesses grow with high-performing websites, mobile apps, and practical AI-powered automation built around the way they work.",
-  keywords: ["digital solutions for business", "business websites", "mobile app development", "AI automation", "business automation", "digital agency India"],
+  title: "Agentraa | Your Technology Solutions Partner",
+  description:
+    "From software development and AI automation to cloud infrastructure and cybersecurity, Agentraa helps businesses solve challenges with the right technology.",
+  keywords: [
+    "technology solutions partner",
+    "software development",
+    "AI business automation",
+    "cloud and devops",
+    "cybersecurity",
+    "IT consulting",
+  ],
+  icons: {
+    icon: "/Agentraa Agency Orbital Logo.png",
+    apple: "/Agentraa Agency Orbital Logo.png",
+  },
   openGraph: {
-    title: "Agentraa | Digital Solutions for Growing Businesses",
-    description: "Websites, mobile apps, and AI-powered automation to help businesses operate better and grow.",
+    title: "Agentraa | Your Technology Solutions Partner",
+    description:
+      "We solve business problems with technology—across software development, AI automation, cloud infrastructure, cybersecurity, and IT consulting.",
     url: "https://agentraa.com",
     siteName: "Agentraa",
     locale: "en_IN",
@@ -30,8 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agentraa | Digital Solutions for Growing Businesses",
-    description: "Websites, mobile apps, and AI-powered automation to help businesses operate better and grow.",
+    title: "Agentraa | Your Technology Solutions Partner",
+    description:
+      "We solve business problems with technology—across software development, AI automation, cloud infrastructure, cybersecurity, and IT consulting.",
   },
   alternates: {
     canonical: "https://agentraa.com",
@@ -44,16 +56,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className={`${inter.variable} ${outfit.variable} font-sans min-h-screen bg-[#050505] text-slate-200 flex flex-col antialiased selection:bg-indigo-500/30 selection:text-indigo-200 overflow-x-hidden`}>
-        {/* Subtle background noise texture */}
-        <div className="fixed inset-0 z-[-1] opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")' }}></div>
-        
+    <html lang="en" className="scroll-smooth">
+      <body
+        className={`${inter.variable} ${outfit.variable} font-sans min-h-screen bg-white text-[#0B1220] flex flex-col antialiased selection:bg-[#2563EB]/15 selection:text-[#0B1220] overflow-x-clip`}
+      >
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
-        <FloatingCTA />
-        <BookCallModal />
       </body>
     </html>
   );
